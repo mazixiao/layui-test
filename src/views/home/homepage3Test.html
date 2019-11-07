@@ -50,6 +50,20 @@
       <i class="layui-icon layui-icon-delete layui-anim layui-anim-rotate layui-anim-loop"></i>
 
 
+      <ul class="layui-nav layui-bg-cyan">
+        <li class="layui-nav-item"><a href="">藏青导航</a></li>
+        <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+        <li class="layui-nav-item"><a href="">大数据</a></li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">社区</a></li>
+      </ul>
 
       <form class="layui-form" action="" lay-filter="example">
         <div class="layui-form-item">
@@ -117,12 +131,14 @@
         </div>
         <div class="layui-form-item">
           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo" id="formDemo">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo0" id="formDemo">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
           </div>
         </div>
       </form>
 
+
+      
 
 
         
@@ -196,16 +212,8 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   });
 
   $("#formDemo").click(function() {
-    console.log(1);
+    // console.log(1);
   })
-
-  
- // //表单取值
- //  layui.$('#formDemo').on('click', function(){
- //    var data = form.val('example');
- //    alert(JSON.stringify(data));
- //  });
-
   
 });
 </script>
