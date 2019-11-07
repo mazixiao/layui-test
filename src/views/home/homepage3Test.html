@@ -147,22 +147,22 @@
 <script>
     // 号码验证(手机 + 固话)
     function checkPhoness(phone){
-        if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
-            return false;
-        } else {
-            return true;
-        }
+      if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
+          return false;
+      } else {
+          return true;
+      }
     };
 
     // 邮箱认证
     function checkEmail(email){
-        var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-        if (!re.test(email)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+      var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+      if (!re.test(email)) {
+          return false;
+      } else {
+          return true;
+      }
+    };
 
 
 layui.use(['form', 'layedit', 'laydate'], function(){
@@ -194,6 +194,11 @@ layui.use(['form', 'layedit', 'laydate'], function(){
       }
     },
   });
+
+  $("#formDemo").click(function() {
+    console.log(1);
+  })
+
   
  // //表单取值
  //  layui.$('#formDemo').on('click', function(){
