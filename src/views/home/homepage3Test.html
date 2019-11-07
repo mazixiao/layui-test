@@ -136,13 +136,25 @@
 
 <script>
     // 号码验证(手机 + 固话)
-    function checkPhoness(phone){
+    function checkPhoness(phone) {
         if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
             return false;
         } else {
             return true;
         }
-    }
+    };
+
+
+    // 邮箱认证
+    function checkEmail(email){
+        var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+        if (!re.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
 
 layui.use(['form', 'layedit', 'laydate'], function(){
   var form = layui.form
@@ -180,55 +192,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 
 
 
-<script>
-
-
-//     // 号码验证(手机 + 固话)
-//     function checkPhoness(phone){
-//         if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
-//             return false;
-//         } else {
-//             return true;
-//         }
-//     }
-//     // 邮箱认证
-//     function checkEmail(email){
-//         var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-//         if (!re.test(email)) {
-//             return false;
-//         } else {
-//             return true;
-//         }
-//     }
-
-//     // input1
-
-
-
-// //第一种：主动加载jquery模块
-// layui.use(['jquery', 'layer'], function(){ 
-//   var $ = layui.$ //重点处
-//   ,layer = layui.layer;
-  
-
-//     $(".layui-btn").click(function() {
-//       var input1 = $.trim($("#input1").val());
-
-
-//       if(!checkPhoness(input1)) {
-//           layer.msg('请输入正确的号码格式');
-//           return false;
-//       }
-
-
-
-//     })
-
-// });
-
-
-    
-</script>
 
 </body>
 </html>
