@@ -51,22 +51,32 @@
 
 
 
-      <form class="layui-form" action="">
+      <form class="layui-form" action="" lay-filter="example">
         <div class="layui-form-item">
-          <label class="layui-form-label">输入框</label>
+          <label class="layui-form-label">姓名</label>
           <div class="layui-input-block">
-            <input id="input1" type="text" name="title" required  lay-verify="title" placeholder="请输入标题" autocomplete="off" class="layui-input">
+            <input id="input1" type="text" name="names" required  lay-verify="names" placeholder="请输入姓名" autocomplete="off" class="layui-input">
           </div>
         </div>
         <div class="layui-form-item">
-          <label class="layui-form-label">密码框</label>
+          <label class="layui-form-label">电话</label>
           <div class="layui-input-inline">
-            <input id="input2" type="password" name="password" required lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            <input id="input2" type="text" name="phone" required lay-verify="phone" placeholder="请输入电话" autocomplete="off" class="layui-input">
           </div>
           <div class="layui-form-mid layui-word-aux">辅助文字</div>
         </div>
+
         <div class="layui-form-item">
-          <label class="layui-form-label">选择框</label>
+          <label class="layui-form-label">邮箱</label>
+          <div class="layui-input-inline">
+            <input id="input2" type="text" name="email" required lay-verify="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+
+
+
+        <div class="layui-form-item">
+          <label class="layui-form-label" lay-verify="select">选择框</label>
           <div class="layui-input-block">
             <select name="city" lay-verify="required">
               <option value=""></option>
@@ -107,7 +117,7 @@
         </div>
         <div class="layui-form-item">
           <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="formDemo">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
           </div>
         </div>
@@ -136,14 +146,13 @@
 
 <script>
     // 号码验证(手机 + 固话)
-    function checkPhoness(phone) {
+    function checkPhoness(phone){
         if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
             return false;
         } else {
             return true;
         }
     };
-
 
     // 邮箱认证
     function checkEmail(email){
@@ -153,7 +162,7 @@
         } else {
             return true;
         }
-    };
+    }
 
 
 layui.use(['form', 'layedit', 'laydate'], function(){
@@ -164,31 +173,37 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   
     var $ = layui.$ //由于layer弹层依赖jQuery，所以可以直接得到
   ,layer = layui.layer;
-
-  console.log($("body"));
  
   //自定义验证规则
   form.verify({
-    title: function(value){
-      if(value.length < 5){
-        return '标题至少得5个字符啊';
+    names: function(value){
+      if(value === ''){
+        return '姓名不能为空';
       }
-    }
-    ,pass: [
-      !checkPhoness(input1)
-      ,'密码必须6到12位，且不能出现空格'
-    ]
-    ,content: function(value){
-      layedit.sync(editIndex);
-    }
+    },
+
+    phone: function(value){
+      if(!checkPhoness(value)){
+        return '请输入正确的号码格式';
+      }
+    },
+
+    email: function(value){
+      if(!checkEmail(value)){
+        return '请输入正确的邮箱格式';
+      }
+    },
   });
   
+ // //表单取值
+ //  layui.$('#formDemo').on('click', function(){
+ //    var data = form.val('example');
+ //    alert(JSON.stringify(data));
+ //  });
 
   
 });
 </script>
-
-
 
 
 
