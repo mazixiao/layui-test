@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>主页三测试</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="../../layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../../layuiadmin/style/admin.css" media="all">
+</head>
+<body>
+
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            访问量
+            <span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font">9,999,666</p>
+            <p>
+              总计访问量 
+              <span class="layuiadmin-span-color">88万 <i class="layui-inline layui-icon layui-icon-flag"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color: #1E9FFF;"></i> 
+      <i class="layui-icon layui-icon-rate-solid layui-anim layui-anim-rotate layui-anim-loop" style="font-size: 30px; color: #1E9FFF;"></i> 
+
+
+      <button type="button" class="layui-btn">一个标准的按钮</button>
+      <a href="javascript:;" class="layui-btn">一个可跳转的按钮</a>
+      <button class="layui-btn layui-btn-disabled">禁用按钮</button>
+
+
+
+      <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+        <i class="layui-icon layui-icon-loading"></i>
+      </button>      
+  
+      <i class="layui-icon layui-icon-delete layui-anim layui-anim-rotate layui-anim-loop"></i>
+
+
+
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <label class="layui-form-label">输入框</label>
+          <div class="layui-input-block">
+            <input id="input1" type="text" name="title" required  lay-verify="title" placeholder="请输入标题" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">密码框</label>
+          <div class="layui-input-inline">
+            <input id="input2" type="password" name="password" required lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+          </div>
+          <div class="layui-form-mid layui-word-aux">辅助文字</div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">选择框</label>
+          <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+              <option value=""></option>
+              <option value="0">北京</option>
+              <option value="1">上海</option>
+              <option value="2">广州</option>
+              <option value="3">深圳</option>
+              <option value="4">杭州</option>
+            </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">复选框</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="like[write]" title="写作">
+            <input type="checkbox" name="like[read]" title="阅读" checked>
+            <input type="checkbox" name="like[dai]" title="发呆0" checked>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">开关</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="switch" lay-skin="switch">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">单选框</label>
+          <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男">
+            <input type="radio" name="sex" value="女" title="女" checked>
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">文本域</label>
+          <div class="layui-input-block">
+            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </div>
+      </form>
+
+
+
+        
+      </div>
+    </div>
+  </div>
+  
+  <script src="../../layuiadmin/layui/layui.js"></script>  
+  <script>
+  layui.config({
+    base: '../../layuiadmin/' //静态资源所在路径
+  }).extend({
+    index: 'lib/index' //主入口模块
+  }).use(['index', 'sample']);
+  </script>
+
+
+
+
+
+
+<script>
+    // 号码验证(手机 + 固话)
+    function checkPhoness(phone){
+        if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+    var $ = layui.$ //由于layer弹层依赖jQuery，所以可以直接得到
+  ,layer = layui.layer;
+
+  console.log($("body"));
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [
+      !checkPhoness(input1)
+      ,'密码必须6到12位，且不能出现空格'
+    ]
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+
+  
+});
+</script>
+
+
+
+
+
+<script>
+
+
+//     // 号码验证(手机 + 固话)
+//     function checkPhoness(phone){
+//         if(!(/^(0\d{2,3}-?)?\d{5,8}$/.test(phone)) && !(/^1[34578]\d{9}$/.test(phone))){
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     }
+//     // 邮箱认证
+//     function checkEmail(email){
+//         var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+//         if (!re.test(email)) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     }
+
+//     // input1
+
+
+
+// //第一种：主动加载jquery模块
+// layui.use(['jquery', 'layer'], function(){ 
+//   var $ = layui.$ //重点处
+//   ,layer = layui.layer;
+  
+
+//     $(".layui-btn").click(function() {
+//       var input1 = $.trim($("#input1").val());
+
+
+//       if(!checkPhoness(input1)) {
+//           layer.msg('请输入正确的号码格式');
+//           return false;
+//       }
+
+
+
+//     })
+
+// });
+
+
+    
+</script>
+
+</body>
+</html>
