@@ -137,8 +137,90 @@
         </div>
       </form>
 
+  <!-- tab -->
+    <div class="layui-tab">
+      <ul class="layui-tab-title">
+        <li class="layui-this">网站设置</li>
+        <li>用户管理</li>
+        <li>权限分配</li>
+        <li>商品管理</li>
+        <li>订单管理</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          1. 高度默认自适应，也可以随意固宽。
+          <br>2. Tab进行了响应式处理，所以无需担心数量多少。
+        </div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+      </div>
+    </div>
 
-      
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+      <ul class="layui-tab-title">
+        <li class="layui-this">网站设置</li>
+        <li>用户管理</li>
+        <li>权限分配</li>
+        <li>商品管理</li>
+        <li>订单管理</li>
+      </ul>
+      <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+      </div>
+    </div> 
+
+
+    <div class="layui-tab layui-tab-card">
+      <ul class="layui-tab-title">
+        <li class="layui-this">网站设置</li>
+        <li>用户管理</li>
+        <li>权限分配</li>
+        <li>商品管理</li>
+        <li>订单管理</li>
+      </ul>
+      <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
+        <div class="layui-tab-item">2</div>
+        <div class="layui-tab-item">3</div>
+        <div class="layui-tab-item">4</div>
+        <div class="layui-tab-item">5</div>
+        <div class="layui-tab-item">6</div>
+      </div>
+    </div>
+
+    <!-- 动态表格 -->
+    <table class="layui-hide" id="test"></table>
+
+
+
+    <div class="layui-carousel" id="test1" lay-filter="test1">
+      <div carousel-item="">
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
+      </div>
+    </div> 
+
+
+
+
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
+      <p>占位</p>
 
 
         
@@ -211,14 +293,43 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     },
   });
 
-  $("#formDemo").click(function() {
-    // console.log(1);
-  })
   
 });
 </script>
 
+<script>
 
+
+  layui.use(['table', 'carousel'], function(){
+    var table = layui.table;
+    // 轮播图
+    var carousel = layui.carousel;
+    table.render({
+      elem: '#test'
+      ,url: layui.setter.base + 'json/console/homepage3Test.js' //模拟接口
+      ,cols: [[
+        {field:'id', width:80, title: 'ID', sort: true}
+        ,{field:'username', width:80, title: '用户名'}
+        ,{field:'sex', width:80, title: '性别', sort: true}
+        ,{field:'city', width:80, title: '城市'}
+        ,{field:'sign', title: '签名', minWidth: 150}
+        ,{field:'experience', width:80, title: '积分', sort: true}
+        ,{field:'score', width:80, title: '评分', sort: true}
+        ,{field:'classify', width:80, title: '职业'}
+        ,{field:'wealth', width:135, title: '财富', sort: true}
+      ]]
+      ,page: true
+    });
+
+    //常规轮播
+    carousel.render({
+      elem: '#test1'
+      ,arrow: 'always'
+    });
+
+
+  });
+</script>
 
 
 </body>
