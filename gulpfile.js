@@ -70,7 +70,10 @@ var argv = require('minimist')(process.argv.slice(2), {
   ,mv: function(){    
     gulp.src('./src/layuiadmin/json/**/*')
     .pipe(gulp.dest(destDir + '/layuiadmin/json'));
-    
+    // 打包后将layui也放入dist文件中
+    gulp.src('./src/layuiadmin/layui/**/*')
+    .pipe(gulp.dest(destDir + '/layuiadmin/layui'));
+
     gulp.src('./src/layuiadmin/lib/extend/echarts.js')
     .pipe(gulp.dest(destDir + '/layuiadmin/lib/extend'));
     
