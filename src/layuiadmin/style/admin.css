@@ -525,5 +525,16 @@ html{background-color: #f2f2f2; color: #666;}
 
 
 table {
-	background-color: red !important;
+	background-color: green !important;
+}
+
+.watch {
+	position: relative;
+}
+
+.watch img {
+	position: absolute;
+	left: 46px;
+	top: 0;
+	display: none;
 }

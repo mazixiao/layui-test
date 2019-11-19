@@ -211,7 +211,7 @@
 
 
     <!-- 弹出层 -->
-    <button data-method="setTop" class="layui-btn">多窗口模式，层叠置顶</button>
+    <button data-method="setTop" data-type="auto" class="layui-btn">多窗口模式，层叠置顶</button>
     <button data-method="confirmTrans" class="layui-btn">配置一个透明的询问框</button>
     <button data-method="notice" class="layui-btn">示范一个公告层</button>
     <button data-method="offset" data-type="t" class="layui-btn layui-btn-normal">上弹出</button>
@@ -228,6 +228,19 @@
     <a id="tip-layer" class="layui-btn layui-btn-primary" href="javascript:;">提示层</a>
 
 
+
+      <textarea id="demo11"></textarea>
+
+  <button class="watch">
+    查看
+    <img src="../../layuiadmin/style/res/layui-logo.jpg" alt="">
+  </button>
+  <button class="watch">
+    查看
+    <img src="../../layuiadmin/style/res/logo-black.png" alt="">
+  </button>
+
+  
 
       <p>占位</p>
       <p>占位</p>
@@ -280,9 +293,17 @@
     };
 
 
+
+// layui.use('layedit', function(){
+//   var layedit = layui.layedit;
+//   layedit.build('demo'); //建立编辑器
+// });
+
+
 layui.use(['form', 'layedit', 'laydate', 'layer'], function() {
   var form = layui.form,
   layer = layui.layer,
+  //编辑器
   layedit = layui.layedit,
   laydate = layui.laydate,
   //由于layer弹层依赖jQuery，所以可以直接得到
@@ -311,6 +332,41 @@ layui.use(['form', 'layedit', 'laydate', 'layer'], function() {
   });
 
 
+
+  //建立编辑器
+  layedit.build('demo11', {
+    //设置编辑器高度
+    height: 180, 
+    tool: [
+      //加粗
+      'strong',
+      //斜体
+      'italic', 
+      //下划线
+      'underline', 
+      //删除线
+      'del', 
+      //分割线
+      '|' ,
+      //左对齐
+      'left',
+      //居中对齐 
+      'center', 
+      //右对齐
+      'right', 
+      //超链接
+      'link', 
+      //清除链接
+      'unlink', 
+      //表情
+      'face', 
+      //插入图片
+      'image', 
+      //帮助
+      'help' 
+    ]
+
+  });
 
 
 
@@ -464,7 +520,11 @@ layui.use(['form', 'layedit', 'laydate', 'layer'], function() {
 layui.use('layer', function(){ //独立版的layer无需执行这一句
   var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
   
-
+  $(".watch").hover(function() {
+    $(this).find('img').show();
+  }, function() {
+    $(this).find('img').hide();
+  })
   
 });
 
