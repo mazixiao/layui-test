@@ -12,7 +12,8 @@
             "experience": "33",
             "score": "66",
             "classify": "自由职业",
-            "wealth": "999"
+            "wealth": "999",
+            "操作": ["抽检", "下载"]
         }, 
         {
             "id": "Java程序员能找到女朋友吗", 
@@ -23,7 +24,8 @@
             "experience": "33",
             "score": "66",
             "classify": "自由职业",
-            "wealth": "999"
+            "wealth": "999",
+            "操作": ["抽检", "下载"]
         }, 
         {
             "id": "此表格是静态模拟数据", 
@@ -34,7 +36,8 @@
             "experience": "33",
             "score": "66",
             "classify": "自由职业",
-            "wealth": "999"
+            "wealth": "999",
+            "操作": ["抽检", "下载"]
         }, 
         {
             "id": "layui官方教程", 
@@ -45,7 +48,8 @@
             "experience": "33",
             "score": "66",
             "classify": "自由职业",
-            "wealth": "999"
+            "wealth": "999",
+            "操作": ["抽检", "下载"]
         }
     ]
 }
